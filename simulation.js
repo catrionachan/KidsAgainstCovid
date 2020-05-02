@@ -32,14 +32,16 @@ console.log(homes);
 console.log("pop: " + population);
 
 //PEOPLE//
-
 //TODO: proper age distribution
 
 var people = []
 
-function Person(id, location, home, age, socialDistancingObedience, underlyingCondition) {
+function Person(id, infected, removed, location, justShopped, home, age, socialDistancingObedience, underlyingCondition) {
     this.id = id;
+    this.infected = infected;
+    this.removed = removed;
     this.location = location;
+    this.justShopped = justShopped;
     this.home = home;
     this.age = age;
     this.socialDistancingObedience = socialDistancingObedience;
@@ -47,10 +49,9 @@ function Person(id, location, home, age, socialDistancingObedience, underlyingCo
 }
 
 for (var i = 0; i < population; i++) {
-    people[i] = new Person(i, locations.HOME, null, Math.floor(Math.random()*100), Math.random(), false);
+    people[i] = new Person(i, false, false, locations.HOME, false, null, Math.floor(Math.random()*100), Math.random(), false);
     for (var j = 0; j < nHomes; j++) {
         if (homes[j].currentPeople != homes[j].maxPeople) {
-            console.log("test");
             people[i].home = homes[j];
             homes[j].currentPeople++;
             break;
@@ -60,3 +61,33 @@ for (var i = 0; i < population; i++) {
 }
 
 console.log(people);
+
+//SIMULATION//
+day = 0;
+
+people[0].infected = true;
+
+//each day
+for (var i = 0; i < 50; i++) {
+    //grocery store
+    groceryInfectionChance = 0;
+    for (var j = 0; j < people.length; j++) {
+        if (Math.random() <= 0.3*people[j].socialDistancingObedience && !people[j].justShopped) people[j].location = locations.GROCERY_STORE;
+        if (people[j].infected && people[j].location == locations.GROCERY_STORE) groceryInfectionChance += 0.05;
+    }
+    for (var j = 0; j < people.length; j++) {
+        if (people[j].location == locations.GROCERY_STORE) if (Math.random() <= groceryInfectionChance) people[j].infected = true;
+    }
+    for (var j = 0; j < people.length; j++) {
+        people[j].location = locations.HOME;
+    }
+    day++;
+}
+
+console.log(people);
+
+infected = 0;
+for (var j = 0; j < people.length; j++) {
+    if (people[j].infected) infected++;
+}
+console.log(infected);
