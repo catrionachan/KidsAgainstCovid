@@ -1,3 +1,9 @@
+//SETUP//
+const locations = {
+    HOME: 'home',
+    GROCERY_STORE: 'grocery store'
+}
+
 //HOMES//
 var homes = []
 
@@ -26,6 +32,9 @@ console.log(homes);
 console.log("pop: " + population);
 
 //PEOPLE//
+
+//TODO: proper age distribution
+
 var people = []
 
 function Person(id, location, home, age, socialDistancingObedience, underlyingCondition) {
@@ -38,7 +47,7 @@ function Person(id, location, home, age, socialDistancingObedience, underlyingCo
 }
 
 for (var i = 0; i < population; i++) {
-    people[i] = new Person(i, null, null, Math.floor(Math.random()*100), Math.random(), false);
+    people[i] = new Person(i, locations.HOME, null, Math.floor(Math.random()*100), Math.random(), false);
     for (var j = 0; j < nHomes; j++) {
         if (homes[j].currentPeople != homes[j].maxPeople) {
             console.log("test");
