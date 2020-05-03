@@ -26,13 +26,13 @@ function draw() {
     var centerY = canvas.height / 2;
     var radius = 70;
 
-    context.beginPath();
-    context.arc(30, 30, 3, 0, 2 * Math.PI, false);
+    /*context.beginPath();
+    context.arc(200, 30, 3, 0, 2 * Math.PI, false);
     context.fillStyle = 'red';
     context.fill();
     context.lineWidth = 1;
     context.strokeStyle = 'darkred';
-    context.stroke();
+    context.stroke();*/
     var numRows = 10;
     var numColumn = 10;
     var canvasx = 576;
@@ -45,14 +45,22 @@ function draw() {
         }
     }
     
+
     var counterHome = 1;
     var counterPeople = 0;
     var homeSpots = 0;
     for (var x2 = 0, k = 0; k < 30; x2 += (19), k++) {
       for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
+            var w = Math.floor(Math.random() * 8);
           context.strokeStyle = 'purple';
           context.strokeRect(x2, y2, (19), (14));
           context.fillStyle = 'green';
+          if (w == 3){
+            context.fillStyle = 'red';
+          }
+          if (w == 4){
+            context.fillStyle = 'yellow';
+          }
           context.beginPath();
           context.arc(x2+10, y2+7, 3, 0, 2 * Math.PI, false);
           context.fill();
@@ -62,6 +70,13 @@ function draw() {
           }
       }
 
-    
+
+      
 }
+
+
+
+
+
+
 
