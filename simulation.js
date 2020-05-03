@@ -70,16 +70,6 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
     this.getDeathChance = function() {
         var chance = 0;
         if (age >= 80) {
-<<<<<<< Updated upstream
-            chance += 0.005;
-            if (this.tSinceInfection >= 6) chance += 0.01;
-            if (this.tSinceInfection >= 11) chance += 0.02;
-        } else if (age < 80 && age >= 70) {
-            chance += 0.001;
-            if (this.tSinceInfection >= 6) chance += 0.0075;
-            if (this.tSinceInfection >= 11) chance += 0.0125;
-        } else if (age < 70 && age >= 60) {
-=======
             chance += 0.007;
             if (this.tSinceInfection >= 6) chance += 0.0125;
             if (this.tSinceInfection >= 11) chance += 0.024;
@@ -90,7 +80,6 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
             if (this.tSinceInfection >= 11) chance += 0.0175;
         }
         else if (age < 70 && age >= 60) {
->>>>>>> Stashed changes
             chance += 0.0005;
             if (this.tSinceInfection >= 6) chance += 0.001;
             if (this.tSinceInfection >= 11) chance += 0.005;
@@ -149,11 +138,7 @@ for (var i = 1; i <= nDays; i++) {
     groceryInfectionChance = 0;
     shopped = 0;
     for (p of people) {
-<<<<<<< Updated upstream
-        if ((Math.random() <= 0.2 * (1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.2 * (1 - p.socialDistancingObedience && p.recovered))) {
-=======
         if ((Math.random() <= 0.05*(1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.2*(1 - p.socialDistancingObedience) && p.recovered)) {
->>>>>>> Stashed changes
             if (!p.dead) p.location = locations.GROCERY_STORE, shopped++;
         }
         if (p.infected && p.location == locations.GROCERY_STORE && !p.dead) groceryInfectionChance += 0.5;
