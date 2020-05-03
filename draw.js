@@ -7,7 +7,7 @@ function draw() {
     var radius = 70;
 
     context.beginPath();
-    context.arc(15, 15, 5, 0, 2 * Math.PI, false);
+    context.arc(15, 15, 3, 0, 2 * Math.PI, false);
     context.fillStyle = 'green';
     context.fill();
     context.lineWidth = 1;
@@ -15,7 +15,7 @@ function draw() {
     context.stroke();
 
     context.beginPath();
-    context.arc(30, 30, 5, 0, 2 * Math.PI, false);
+    context.arc(30, 30, 3, 0, 2 * Math.PI, false);
     context.fillStyle = 'red';
     context.fill();
     context.lineWidth = 1;
