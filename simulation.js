@@ -62,10 +62,10 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
 
 for (var i = 0; i < population; i++) {
     people[i] = new Person(i, false, 0, false, false, false, locations.HOME, false, null, Math.floor(Math.random()*100), Math.random(), false);
-    for (var j = 0; j < nHomes; j++) {
-        if (homes[j].currentPeople < homes[j].maxPeople) {
-            people[i].home = homes[j];
-            homes[j].currentPeople++;
+    for (h of homes) {
+        if (h.currentPeople < h.maxPeople) {
+            people[i].home = h;
+            h.currentPeople++;
             break;
         }
     }
@@ -82,26 +82,26 @@ people[0].infected = true;
 //each day
 for (var i = 1; i <= nDays; i++) {
     //general
-    for (var j = 0; j < people.length; j++) {
-        if (people[j].tSinceInfection >= 15) people[j].infected = false, people[j].recovered = true;
-        else if (people[j].tSinceInfection >= 5) people[j].symptomatic = true;
-        if (people[j].infected) people[j].tSinceInfection++;
+    for (p of people) {
+        if (p.tSinceInfection >= 15) p.infected = false, p.recovered = true;
+        else if (p.tSinceInfection >= 5) p.symptomatic = true;
+        if (p.infected) p.tSinceInfection++;
     }
 
     //grocery store
     groceryInfectionChance = 0;
     shopped = 0;
-    for (var j = 0; j < people.length; j++) {
-        if ((Math.random() <= 0.3*(1 - people[j].socialDistancingObedience) && !people[j].justShopped && !people[j].symptomatic) || (Math.random() <= 0.3*(1 - people[j].socialDistancingObedience && people[j].recovered))) {
-            people[j].location = locations.GROCERY_STORE, shopped++;
+    for (p of people) {
+        if ((Math.random() <= 0.3*(1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.3*(1 - p.socialDistancingObedience && p.recovered))) {
+            p.location = locations.GROCERY_STORE, shopped++;
         }
-        if (people[j].infected && people[j].location == locations.GROCERY_STORE) groceryInfectionChance += 0.5;
+        if (p.infected && p.location == locations.GROCERY_STORE) groceryInfectionChance += 0.5;
     }
-    for (var j = 0; j < people.length; j++) {
-        if (people[j].location == locations.GROCERY_STORE) if (Math.random() <= groceryInfectionChance) people[j].infected = true;
+    for (p of people) {
+        if (p.location == locations.GROCERY_STORE) if (Math.random() <= groceryInfectionChance) p.infected = true;
     }
-    for (var j = 0; j < people.length; j++) {
-        people[j].location = locations.HOME;
+    for (p of people) {
+        p.location = locations.HOME;
     }
 
     //home
@@ -111,10 +111,10 @@ for (var i = 1; i <= nDays; i++) {
     infected = 0;
     recovered = 0;
     dead = 0;
-    for (var j = 0; j < people.length; j++) {
-        if (people[j].infected) infected++;
-        if (people[j].recovered) recovered++;
-        if (people[j].dead) dead++;
+    for (p of people) {
+        if (p.infected) infected++;
+        if (p.recovered) recovered++;
+        if (p.dead) dead++;
     }
     var sb = "";
         sb+="\nday " + i;
