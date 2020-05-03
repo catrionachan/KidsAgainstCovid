@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="draw.js"></script>
+    <script src="simulation.js"></script>
     <title>KidsAgainstCovid</title>
 
     <meta charset="utf-8">
@@ -67,21 +69,7 @@
         </div> <!-- navigation -->
 
        
-    </div> <!-- container -->
-    <div class="header-social">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="header-social-icon">
-                        <ul>
-                            <li><a href="https://devpost.com/software/kidsagainstcovid"><i class="lni-code-alt"></i></a></li>
-                            <li><a href="https://github.com/catrionachan/KidsAgainstCovid"><i class="lni-github-original"></i></a></li>
-                        </ul>
-                    </div> <!-- header social -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- header social -->
+  
 </div> <!-- header content -->
 </header>
 
@@ -97,7 +85,7 @@
                         <br>
                         <br>
                         <br>
-                        <h2 class="title">COVID-19 Simulation Test</h2>
+                        <h2 class="title">COVID-19 Simulation</h2>
                         <p></p>
                     </div> <!-- section title -->
                 </div>
@@ -224,6 +212,16 @@
     </section>
 
     <!--====== ABOUT PART ENDS ======-->
+ 
+    <canvas id="myCanvas" width="578" height="280" style="border:1px solid #000000;"></canvas>
+    
+          <body onload="draw();">
+            <canvas id="circle" width="150" height="150"></canvas>
+            </body>
+
+    </div>
 
 </body>
+
+
 </html>
