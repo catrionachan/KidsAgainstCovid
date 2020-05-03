@@ -12,12 +12,12 @@ while (t < 45) {
 }
 
 //Social Distancing 
-var N = 5
+var N = 1
 var infRate = .01
 var t = 0
 var infT = 0.1
 var initialRate = .2
-var maxN =239000000
+var maxN =100
 
 while (t < 430) {
     Nold=N 
@@ -26,3 +26,21 @@ while (t < 430) {
      r=(N-Nold)/infRate
     console.log(r)
 }
+
+//updated
+var a =0.2
+var Nmax=1000
+var N=1
+var t=0
+var dt=0.1
+var N0=1
+while (t<75){
+
+  Nold=N 
+  N=N+a*(1-N/Nmax)*N*dt
+  r=(N-Nold)/dt
+  t= t + 0.1
+  console.log(r)
+}
+
+//SIR Model (if wanted): https://github.com/petrosDemetrakopoulos/SIR.js/blob/master/index.js
