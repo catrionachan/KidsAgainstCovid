@@ -5,7 +5,7 @@ let homesData = fs.readFileSync(process.cwd() + "/" + filename).toString()
 var homes = [];
 homes = homesData.split('\n');;
 for (var i = 0; i < homes.length; i++) {
-    homes[i]= homes[i].split(",");
+    homes[i] = homes[i].split(",");
 }
 console.log(homes)
 
@@ -37,25 +37,35 @@ function draw() {
             context.strokeRect(x, y, xdim, ydim);
         }
     }
-
+    var peopleHomes = [];
+    for (var z = 0; z < 100; z++) {
+        peopleHomes[z] = homes[z][1];
+    }
+    var counterHome = 0;
+    var counterPeople = 0;
+    var homeSpots = 0;
     for (var x2 = 0, k = 0; k < 30; x2 += (19), k++) {
         for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
-            context.strokeStyle = 'purple';
-            context.strokeRect(x2, y2, (19), (14));
-            context.fillStyle = 'green';        
+            if (counterHome < 100) {
+                context.strokeStyle = 'purple';
+                context.strokeRect(x2, y2, (19), (14));
+                context.fillStyle = 'green';
+                if (counter < peopleHomes[counterHome]) {
+                    context.beginPath();
+                    context.arc(x2 + 10, y2 + 7, 3, 0, 2 * Math.PI, false);
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = '#003300';
+                    context.stroke();
+                    counter++;
+                } else if (homeSpots == 5) {
+                    counterHome++;
+                    homeSpots = 0;
+                }
+                homeSpots++;
 
-            context.beginPath();
-            context.arc(x2+10, y2+7, 3, 0, 2 * Math.PI, false);
-            context.fill();
-            context.lineWidth = 1;
-            context.strokeStyle = '#003300';
-            context.stroke();
             }
-        }
 
-        for (var z = 0; z<100; z++) {
-            var peopleHomes;
-            peopleHomes = homes[z][1];
-      }    
+        }
 
     }
