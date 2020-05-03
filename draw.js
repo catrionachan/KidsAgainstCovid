@@ -22,10 +22,18 @@ var context = canvas.getContext('2d');
       context.lineWidth = 1;
       context.strokeStyle = 'darkred';
       context.stroke();
-
-      for (var x = 0, i = 0; i < 8; x += 72, i++) {
-        for (var y = 0, j = 0; j < 5; y += 56, j++) {
-            context.strokeRect(x, y, 72, 56);
+      var numRows =10;
+      var numColumn =10;
+      var canvasx =576;
+      var canvasy =280;
+      for (var x = 0, i = 0; i < numRows; x += (canvasx/numRows), i++) {
+        for (var y = 0, j = 0; j < numColumn; y += (canvasy/numColumn), j++) {
+            context.strokeRect(x, y, canvasx/numRows, canvasy/numColumn);
+        }
+    }
+      for (var x = 0, i = 0; i < numrows*3; x += ((canvasx/numRows)/3), i++) {
+        for (var y = 0, j = 0; j < numColumn*2; y += ((canvasy/numColumn)/3), j++) {
+            context.strokeRect(x, y, ((canvasx/numRows)/3)), ((canvasy/numColumn)/3));
         }
     }
 
