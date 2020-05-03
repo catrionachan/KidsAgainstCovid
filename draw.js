@@ -21,10 +21,22 @@ function draw() {
     context.lineWidth = 1;
     context.strokeStyle = 'darkred';
     context.stroke();
-
-    for (var x = 0, i = 0; i < 8; x += 72, i++) {
-        for (var y = 0, j = 0; j < 5; y += 56, j++) {
-            context.strokeRect(x, y, 72, 56);
+    var numRows = 10;
+    var numColumn = 10;
+    var canvasx = 576;
+    var canvasy = 280;
+    var xdim = Math.floor(canvasx / numColumn);
+    var ydim = Math.floor(canvasy / numColumn);
+    for (var x = 0, i = 0; i < numRows; x += xdim, i++) {
+        for (var y = 0, j = 0; j < numColumn; y += ydim, j++) {
+            context.strokeRect(x, y, xdim, ydim);
         }
     }
-}
+    for (var x2 = 0, k = 0; k < numrows * 3; x2 += (xdim / 3), k++) {
+        for (var y2 = 0, l = 0; l < numColumn * 2; y2 += (ydim / 3), l++) {
+            context.strokeRect(x2, y2, (xdim / 3), (ydim / 3);
+            }
+        }
+
+
+    }
