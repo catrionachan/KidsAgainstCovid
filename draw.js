@@ -3,13 +3,20 @@ var fs = require('fs');
 let filename = "homes.csv"
 let homesData = fs.readFileSync(process.cwd() + "/" + filename).toString()
 var homes = [];
-homes = homesData.split('\n');;
+homes = (homesData.split('\n'));
 for (var i = 0; i < homes.length; i++) {
     homes[i] = homes[i].split(",");
 }
-console.log(homes)
+console.log(homes);
 
-console.log(homes[3][1])
+console.log(homes[3][1]);
+console.log(homes[4][1]);
+
+var peopleHomes = [];
+   for (var z = 1; z < 101; z++) {
+         peopleHomes[z] = parseInt(homes[z][1]);
+            console.log(peopleHomes[z]);
+    }
 
 function draw() {
 
@@ -37,41 +44,24 @@ function draw() {
             context.strokeRect(x, y, xdim, ydim);
         }
     }
-    var peopleHomes = [];
-    for (var z = 0; z < 100; z++) {
-        peopleHomes[z] = homes[z][1];
-    }
-    var counterHome = 0;
+    
+    var counterHome = 1;
     var counterPeople = 0;
     var homeSpots = 0;
     for (var x2 = 0, k = 0; k < 30; x2 += (19), k++) {
-        for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
-            if (counterHome < 100) {
-                context.strokeStyle = 'purple';
-                context.strokeRect(x2, y2, (19), (14));
-                context.fillStyle = 'green';
-                if (counterPeople < peopleHomes[counterHome]) {
-                    /*context.beginPath();
-                    context.arc(x2 + 10, y2 + 7, 3, 0, 2 * Math.PI, false);
-                    context.fill();
-                    context.lineWidth = 1;
-                    context.strokeStyle = '#003300';
-                    context.stroke();
-                    */
-                    console.log("people");
-                    counterPeople++;
-                    homeSpots++;
-                } else if (homeSpots == 5) {
-                    counterHome++;
-                    homeSpots = 0;
-                    console.log("empty");
-                }else{
-                    homeSpots++;
-                }
+      for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
+          context.strokeStyle = 'purple';
+          context.strokeRect(x2, y2, (19), (14));
+          context.fillStyle = 'green';
+          context.beginPath();
+          context.arc(x2+10, y2+7, 3, 0, 2 * Math.PI, false);
+          context.fill();
+          context.lineWidth = 1;
+          context.strokeStyle = '#003300';
+          context.stroke();
+          }
+      }
 
-            }
-
-        }
-
-    }
+    
 }
+
