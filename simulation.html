@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="draw.js"></script>
+    <script src="simulation.js"></script>
     <title>KidsAgainstCovid</title>
 
     <meta charset="utf-8">
@@ -210,10 +212,13 @@
     </section>
 
     <!--====== ABOUT PART ENDS ======-->
-    <div class="simulation">
-        <svg width="800" height="500">
-            <rect width="800" height="500" style="fill:white;stroke-width:1;stroke:grey" />
-          </svg>
+ 
+    <canvas id="myCanvas" width="578" height="200" style="border:1px solid #000000;"></canvas>
+    
+          <body onload="draw();">
+            <canvas id="circle" width="150" height="150"></canvas>
+            </body>
+
     </div>
 
 </body>

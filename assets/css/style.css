@@ -1737,3 +1737,15 @@ p.form-message.success, p.form-message.error {
 body {
   overflow:scroll;
 }
+
+#myCanvas {
+  width: 80%;
+  text-align:center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+canvas {
+  display: inline;
+  
+}
