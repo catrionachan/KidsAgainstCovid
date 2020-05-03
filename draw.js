@@ -1,3 +1,14 @@
+var fs = require('fs');
+
+let filename = "homes.csv"
+let homesData = fs.readFileSync(process.cwd() + "/" + filename).toString()
+var homes = [];
+homes = homesData.split('\n');
+for (var i = 0; i < homes.length; i++) {
+    homes[i] = homes[i].split(",");
+}
+console.log(homes)
+
 function draw() {
 
     var canvas = document.getElementById('myCanvas');
