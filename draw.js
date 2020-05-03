@@ -31,9 +31,9 @@ var context = canvas.getContext('2d');
             context.strokeRect(x, y, canvasx/numRows, canvasy/numColumn);
         }
     }
-      for (var x = 0, i = 0; i < numrows*3; x += ((canvasx/numRows)/3), i++) {
-        for (var y = 0, j = 0; j < numColumn*2; y += ((canvasy/numColumn)/3), j++) {
-            context.strokeRect(x, y, ((canvasx/numRows)/3)), ((canvasy/numColumn)/3));
+      for (var x2 = 0, k = 0; k < numrows*3; x2 += ((canvasx/numRows)/3), k++) {
+        for (var y2 = 0, l = 0; l< numColumn*2; y2 += ((canvasy/numColumn)/3), l++) {
+            context.strokeRect(x2, y2, ((canvasx/numRows)/3)), ((canvasy/numColumn)/3));
         }
     }
 
