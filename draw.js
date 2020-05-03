@@ -58,13 +58,13 @@ function draw() {
                     context.strokeStyle = '#003300';
                     context.stroke();
 
-                    //console.log("people");
+                    console.log("people");
                     counterPeople++;
                     homeSpots++;
                 } else if (homeSpots == 5) {
                     counterHome++;
                     homeSpots = 0;
-                    //console.log("empty");
+                    console.log("empty");
                 } else {
                     homeSpots++;
                 }
