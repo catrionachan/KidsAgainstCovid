@@ -1725,13 +1725,9 @@ p.form-message.success, p.form-message.error {
       cursor: pointer; }
 
     .simulation {
-      position: absolute;
-      padding-top: 100px;
-      padding-bottom: 100px;
-      top: 90%;
-      left: 50%;
-      /* bring your own prefixes */
-      transform: translate(-50%, -50%);
+      margin: auto;
+      width: 50%;
+      padding: 10px;
     }
 
 /*# sourceMappingURL=style.css.map */
