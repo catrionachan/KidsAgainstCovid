@@ -32,9 +32,10 @@ function draw() {
             context.strokeRect(x, y, xdim, ydim);
         }
     }
-    for (var x2 = 0, k = 0; k < numrows * 3; x2 += (xdim / 3), k++) {
-        for (var y2 = 0, l = 0; l < numColumn * 2; y2 += (ydim / 3), l++) {
-            context.strokeRect(x2, y2, (xdim / 3), (ydim / 3);
+    context.strokeStyle = 'purple';
+    for (var x2 = 0, k = 0; k < 30; x2 += (19 / 3), k++) {
+        for (var y2 = 0, l = 0; l < 20; y2 += (14 / 3), l++) {
+            context.strokeRect(x2, y2, (19 / 3), (14 / 3));
             }
         }
 
