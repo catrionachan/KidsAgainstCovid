@@ -23,7 +23,7 @@ function Home(id, maxPeople, currentPeople) {
 }
 
 population = 0;
-nHomes = 40;
+nHomes = 1000;
 
 for (var i = 0; i < nHomes; i++) {
     homes[i] = new Home(i, -1, 0);
@@ -62,36 +62,35 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
     this.getDeathChance = function() {
         var chance = 0;
         if (age >= 80) {
-            chance += 0.01;
-            if (this.tSinceInfection >= 6) chance += 0.03;
-            if (this.tSinceInfection >= 11) chance += 0.05;
+            chance += 0.0065;
+            if (this.tSinceInfection >= 6) chance += 0.01;
+            if (this.tSinceInfection >= 11) chance += 0.02;
         }
         else if (age < 80 && age >= 70) {
-            chance += 0.0075;
-            if (this.tSinceInfection >= 6) chance += 0.025;
-            if (this.tSinceInfection >= 11) chance += 0.0425;
+            chance += 0.004;
+            if (this.tSinceInfection >= 6) chance += 0.0055;
+            if (this.tSinceInfection >= 11) chance += 0.0075;
         }
         else if (age < 70 && age >= 60) {
-            chance += 0.005;
-            if (this.tSinceInfection >= 10) chance += 0.015;
-            if (this.tSinceInfection >= 20) chance += 0.025;
+            chance += 0.0005;
+            if (this.tSinceInfection >= 6) chance += 0.002;
+            if (this.tSinceInfection >= 11) chance += 0.0035;
         }
-        else if (age < 60 && age >= 50) {
-            chance += 0.00125;
-            if (this.tSinceInfection >= 10) chance += 0.005;
-            if (this.tSinceInfection >= 20) chance += 0.00875;
+        else if (age < 60 && age >= 40) {
+            chance += 0.00000001;
+            if (this.tSinceInfection >= 10) chance += 0.00000001;
+            if (this.tSinceInfection >= 20) chance += 0.00000002;
         }
-        else chance += 0.001;
         if (this.underlyingCondition) chance += 0.5;
         return chance;
     }
 
     this.getRecoveryChance = function() {
         var chance = 0;
-        if (this.tSinceInfection >= 21) chance += 0.35;
-        else if (this.tSinceInfection >= 18) chance += 0.25;
-        else if (this.tSinceInfection >= 14) chance += 0.15;
-        else if (this.tSinceInfection >= 10) chance += 0.1;
+        if (this.tSinceInfection >= 21) chance += 0.4;
+        else if (this.tSinceInfection >= 18) chance += 0.3;
+        else if (this.tSinceInfection >= 14) chance += 0.25;
+        else if (this.tSinceInfection >= 10) chance += 0.2;
         return chance;
     }
 }
@@ -105,15 +104,17 @@ for (var i = 0; i < population; i++) {
             break;
         }
     }
-    if (Math.random() <= 0.03) people[i].underlyingCondition = true;
+    if (Math.random() <= 0.01 && people[i].age >= 40) people[i].underlyingCondition = true;
+    else if (Math.random() <= 0.002 && people[i].age < 40) people[i].underlyingCondition = true;
 }
 
 console.log(people);
 
 //SIMULATION//
-nDays = 50;
+nDays = 100;
 
 people[0].infected = true;
+people[1].infected = true;
 
 //each day
 for (var i = 1; i <= nDays; i++) {
@@ -165,15 +166,42 @@ for (var i = 1; i <= nDays; i++) {
     
     sb = i + "," + susceptible + "," + infected + "," + recovered + "," + dead + "," + shopped;
     csvWrite('results.csv', sb);
-    console.log("\nday " + i);
-    console.log("susceptible " + susceptible);
-    console.log("infected " + infected);
-    console.log("recovered " + recovered);
-    console.log("dead " + dead);
-    console.log("shopped " + shopped);
+    // console.log("\nday " + i);
+    // console.log("susceptible " + susceptible);
+    // console.log("infected " + infected);
+    // console.log("recovered " + recovered);
+    // console.log("dead " + dead);
+    // console.log("shopped " + shopped);
 }
 
 console.log(people);
+
+var eightsandold = 0, sixsevens = 0, fourfives = 0, twothrees = 0;
+var deightsandold = 0, dsixsevens = 0, dfourfives = 0, dtwothrees = 0;
+
+for (p of people) {
+    if (p.age >= 80) {
+        eightsandold++;
+        if (p.dead) deightsandold++;
+    }
+    else if (p.age < 80 && p.age >= 60) {
+        sixsevens++
+        if (p.dead) dsixsevens++;
+    }
+    else if (p.age < 60 && p.age >= 40) {
+        fourfives++;
+        if (p.dead) dfourfives++;
+    }
+    else if (p.age < 40 && p.age >= 20) {
+        twothrees++;
+        if (p.dead) dtwothrees++;
+    }
+}
+
+console.log(deightsandold / eightsandold);
+console.log(dsixsevens / sixsevens);
+console.log(dfourfives / fourfives);
+console.log(dtwothrees / twothrees);
 
 function txtWrite(savePath, sb) {
     setTimeout(() => {
