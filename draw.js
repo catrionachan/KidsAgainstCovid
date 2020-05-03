@@ -33,11 +33,11 @@ var context = canvas.getContext('2d');
             context.strokeRect(x, y, xdim, ydim);
         }
     }
-      for (var x2 = 0, k = 0; k < numrows*3; x2 += ((xdim/3), k++) {
-      for (var y2 = 0, l = 0; l< numColumn*2; y2 += ((ydim)/3), l++) {
-          context.strokeRect(x2, y2, ((xdim/3)), ((ydim)/3));
-      }
-    }
+     // for (var x2 = 0, k = 0; k < numrows*3; x2 += ((xdim/3), k++) {
+      //for (var y2 = 0, l = 0; l< numColumn*2; y2 += ((ydim)/3), l++) {
+       //   context.strokeRect(x2, y2, ((xdim/3)), ((ydim)/3));
+      //}
+    //}
 
 
    
