@@ -51,21 +51,21 @@ function draw() {
                 context.strokeRect(x2, y2, (19), (14));
                 context.fillStyle = 'green';
                 if (counterPeople < peopleHomes[counterHome]) {
-                    /*context.beginPath();
+                    context.beginPath();
                     context.arc(x2 + 10, y2 + 7, 3, 0, 2 * Math.PI, false);
                     context.fill();
                     context.lineWidth = 1;
                     context.strokeStyle = '#003300';
                     context.stroke();
-                    */
-                    console.log("people");
+
+                    //console.log("people");
                     counterPeople++;
                     homeSpots++;
                 } else if (homeSpots == 5) {
                     counterHome++;
                     homeSpots = 0;
-                    console.log("empty");
-                }else{
+                    //console.log("empty");
+                } else {
                     homeSpots++;
                 }
 
