@@ -8,12 +8,22 @@ var context = canvas.getContext('2d');
       var radius = 70;
 
       context.beginPath();
-      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+      context.arc(15, 15, 5, 0, 2 * Math.PI, false);
       context.fillStyle = 'green';
       context.fill();
-      context.lineWidth = 5;
+      context.lineWidth = 1;
       context.strokeStyle = '#003300';
       context.stroke();
+
+      context.beginPath();
+      context.arc(30, 30, 5, 0, 2 * Math.PI, false);
+      context.fillStyle = 'red';
+      context.fill();
+      context.lineWidth = 1;
+      context.strokeStyle = 'darkred';
+      context.stroke();
+
+
 
 }
 
