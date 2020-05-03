@@ -7,14 +7,6 @@ function draw() {
     var radius = 70;
 
     context.beginPath();
-    context.arc(15, 15, 3, 0, 2 * Math.PI, false);
-    context.fillStyle = 'green';
-    context.fill();
-    context.lineWidth = 1;
-    context.strokeStyle = '#003300';
-    context.stroke();
-
-    context.beginPath();
     context.arc(30, 30, 3, 0, 2 * Math.PI, false);
     context.fillStyle = 'red';
     context.fill();
@@ -32,10 +24,18 @@ function draw() {
             context.strokeRect(x, y, xdim, ydim);
         }
     }
-    context.strokeStyle = 'purple';
+
     for (var x2 = 0, k = 0; k < 30; x2 += (19), k++) {
         for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
+            context.strokeStyle = 'purple';
             context.strokeRect(x2, y2, (19), (14));
+            context.fillStyle = 'green';
+            context.beginPath();
+            context.arc(x2+10, y2+7, 3, 0, 2 * Math.PI, false);
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = '#003300';
+            context.stroke();
             }
         }
 
