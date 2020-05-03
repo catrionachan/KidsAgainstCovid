@@ -1,4 +1,10 @@
+var fs = require('fs');
+
 //SETUP//
+fs.writeFile('results.txt', '', function(err){
+    if (err) console.log(err);
+});
+
 const locations = {
     HOME: 'home',
     GROCERY_STORE: 'grocery store'
@@ -97,7 +103,7 @@ for (var i = 1; i <= nDays; i++) {
 
     //home
 
-    
+    //output
     infected = 0;
     recovered = 0;
     dead = 0;
@@ -106,11 +112,27 @@ for (var i = 1; i <= nDays; i++) {
         if (people[j].recovered) recovered++;
         if (people[j].dead) dead++;
     }
+    var sb = "";
+        sb+="\nday " + i;
+        sb+="\ninfected " + infected;
+        sb+="\nrecovered " + recovered;
+        sb+="\ndead " + dead;
+        sb+="\nshopped " + shopped;
+
+    fileWrite2('results.txt', sb);
     console.log("\nday " + i);
     console.log("infected " + infected);
     console.log("recovered " + recovered);
     console.log("dead " + dead);
-    console.log("shopped " + shopped)
+    console.log("shopped " + shopped);
 }
 
 //console.log(people);
+
+function fileWrite2(savePath, sb) {
+    setTimeout(() => {
+        fs.appendFile(savePath, sb + "\n", function(err) {
+            if (err) throw err;
+        });
+    }, 1000);
+}

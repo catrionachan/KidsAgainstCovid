@@ -1,0 +1,300 @@
+
+day 1
+infected 9
+recovered 0
+dead 0
+shopped 15
+
+day 2
+infected 17
+recovered 0
+dead 0
+shopped 10
+
+day 3
+infected 27
+recovered 0
+dead 0
+shopped 14
+
+day 4
+infected 34
+recovered 0
+dead 0
+shopped 12
+
+day 5
+infected 40
+recovered 0
+dead 0
+shopped 11
+
+day 6
+infected 51
+recovered 0
+dead 0
+shopped 21
+
+day 7
+infected 58
+recovered 0
+dead 0
+shopped 14
+
+day 8
+infected 62
+recovered 0
+dead 0
+shopped 9
+
+day 10
+infected 73
+recovered 0
+dead 0
+shopped 13
+
+day 9
+infected 66
+recovered 0
+dead 0
+shopped 7
+
+day 11
+infected 76
+recovered 0
+dead 0
+shopped 7
+
+day 12
+infected 77
+recovered 0
+dead 0
+shopped 8
+
+day 13
+infected 80
+recovered 0
+dead 0
+shopped 7
+
+day 14
+infected 82
+recovered 0
+dead 0
+shopped 4
+
+day 15
+infected 83
+recovered 0
+dead 0
+shopped 3
+
+day 16
+infected 84
+recovered 1
+dead 0
+shopped 4
+
+day 17
+infected 76
+recovered 9
+dead 0
+shopped 2
+
+day 18
+infected 73
+recovered 17
+dead 0
+shopped 9
+
+day 19
+infected 63
+recovered 27
+dead 0
+shopped 9
+
+day 20
+infected 53
+recovered 34
+dead 0
+shopped 14
+
+day 21
+infected 53
+recovered 40
+dead 0
+shopped 12
+
+day 22
+infected 45
+recovered 51
+dead 0
+shopped 21
+
+day 23
+infected 30
+recovered 58
+dead 0
+shopped 11
+
+day 24
+infected 26
+recovered 62
+dead 0
+shopped 21
+
+day 25
+infected 22
+recovered 66
+dead 0
+shopped 20
+
+day 26
+infected 15
+recovered 73
+dead 0
+shopped 27
+
+day 29
+infected 8
+recovered 80
+dead 0
+shopped 31
+
+day 28
+infected 11
+recovered 77
+dead 0
+shopped 21
+
+day 27
+infected 12
+recovered 76
+dead 0
+shopped 24
+
+day 30
+infected 6
+recovered 82
+dead 0
+shopped 26
+
+day 31
+infected 5
+recovered 83
+dead 0
+shopped 26
+
+day 32
+infected 3
+recovered 85
+dead 0
+shopped 25
+
+day 33
+infected 3
+recovered 85
+dead 0
+shopped 29
+
+day 35
+infected 1
+recovered 87
+dead 0
+shopped 34
+
+day 36
+infected 1
+recovered 87
+dead 0
+shopped 25
+
+day 37
+infected 1
+recovered 87
+dead 0
+shopped 32
+
+day 34
+infected 1
+recovered 87
+dead 0
+shopped 23
+
+day 38
+infected 0
+recovered 88
+dead 0
+shopped 27
+
+day 39
+infected 0
+recovered 88
+dead 0
+shopped 26
+
+day 41
+infected 0
+recovered 88
+dead 0
+shopped 24
+
+day 40
+infected 0
+recovered 88
+dead 0
+shopped 24
+
+day 42
+infected 0
+recovered 88
+dead 0
+shopped 29
+
+day 43
+infected 0
+recovered 88
+dead 0
+shopped 24
+
+day 44
+infected 0
+recovered 88
+dead 0
+shopped 20
+
+day 45
+infected 0
+recovered 88
+dead 0
+shopped 29
+
+day 46
+infected 0
+recovered 88
+dead 0
+shopped 21
+
+day 47
+infected 0
+recovered 88
+dead 0
+shopped 29
+
+day 49
+infected 0
+recovered 88
+dead 0
+shopped 29
+
+day 48
+infected 0
+recovered 88
+dead 0
+shopped 22
+
+day 50
+infected 0
+recovered 88
+dead 0
+shopped 30
