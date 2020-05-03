@@ -7,6 +7,9 @@ fs.writeFile('results.txt', '', function(err){
 fs.writeFile('results.csv', 'day,susceptible,infected,recovered,dead,shopped\n', function(err){
     if (err) console.log(err);
 });
+fs.writeFile('homes.csv', 'id,people\n', function(err){
+    if (err) console.log(err);
+});
 
 const locations = {
     HOME: 'home',
@@ -35,6 +38,7 @@ for (var i = 0; i < nHomes; i++) {
     if (maxPeopleDecider > 0.9071 && maxPeopleDecider <= 0.9649) homes[i].maxPeople = 5;
     if (maxPeopleDecider > 0.9649 && maxPeopleDecider <= 1) homes[i].maxPeople = 6;
     population += homes[i].maxPeople;
+    csvWrite('homes.csv', homes[i].id+","+homes[i].maxPeople);
 }
 
 console.log(homes);
@@ -143,7 +147,9 @@ for (var i = 1; i <= nDays; i++) {
     }
 
     //home
-
+    // for (p of people) {
+    //     if (p.location == locations.HOME)
+    // }
     
     //output
     infected = 0;
