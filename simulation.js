@@ -16,6 +16,11 @@ const locations = {
     GROCERY_STORE: 'grocery store'
 }
 
+const transmissionCause = {
+    HOUSEHOLD: 'household',
+    COMMUNITY: 'community'
+}
+
 //HOMES//
 var homes = []
 
@@ -49,7 +54,9 @@ console.log("pop: " + population);
 
 var people = []
 
-function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, location, justShopped, home, age, socialDistancingObedience, underlyingCondition) {
+function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, location, justShopped, home, age,
+    socialDistancingObedience, underlyingCondition, transmissionCause) {
+
     this.id = id;
     this.infected = infected;
     this.tSinceInfection = tSinceInfection;
@@ -62,23 +69,24 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
     this.age = age;
     this.socialDistancingObedience = socialDistancingObedience;
     this.underlyingCondition = underlyingCondition;
+    this.transmissionCause = transmissionCause;
 
     this.getDeathChance = function() {
         var chance = 0;
         if (age >= 80) {
-            chance += 0.0065;
+            chance += 0.005;
             if (this.tSinceInfection >= 6) chance += 0.01;
             if (this.tSinceInfection >= 11) chance += 0.02;
         }
         else if (age < 80 && age >= 70) {
-            chance += 0.004;
-            if (this.tSinceInfection >= 6) chance += 0.0055;
-            if (this.tSinceInfection >= 11) chance += 0.0075;
+            chance += 0.001;
+            if (this.tSinceInfection >= 6) chance += 0.0075;
+            if (this.tSinceInfection >= 11) chance += 0.0125;
         }
         else if (age < 70 && age >= 60) {
             chance += 0.0005;
-            if (this.tSinceInfection >= 6) chance += 0.002;
-            if (this.tSinceInfection >= 11) chance += 0.0035;
+            if (this.tSinceInfection >= 6) chance += 0.001;
+            if (this.tSinceInfection >= 11) chance += 0.005;
         }
         else if (age < 60 && age >= 40) {
             chance += 0.00000001;
@@ -118,7 +126,7 @@ console.log(people);
 nDays = 100;
 
 people[0].infected = true;
-people[1].infected = true;
+// people[1].infected = true;
 
 //each day
 for (var i = 1; i <= nDays; i++) {
@@ -134,22 +142,28 @@ for (var i = 1; i <= nDays; i++) {
     groceryInfectionChance = 0;
     shopped = 0;
     for (p of people) {
-        if ((Math.random() <= 0.3*(1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.3*(1 - p.socialDistancingObedience && p.recovered))) {
+        if ((Math.random() <= 0.2*(1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.2*(1 - p.socialDistancingObedience && p.recovered))) {
             if (!p.dead) p.location = locations.GROCERY_STORE, shopped++;
         }
         if (p.infected && p.location == locations.GROCERY_STORE && !p.dead) groceryInfectionChance += 0.5;
     }
     for (p of people) {
-        if (p.location == locations.GROCERY_STORE && !p.dead && !p.recovered) if (Math.random() <= groceryInfectionChance) p.infected = true;
+        if (p.location == locations.GROCERY_STORE && !p.dead && !p.recovered) if (Math.random() <= groceryInfectionChance) p.infected = true , p.transmissionCause = transmissionCause.COMMUNITY;
     }
     for (p of people) {
         p.location = locations.HOME;
     }
 
     //home
-    // for (p of people) {
-    //     if (p.location == locations.HOME)
-    // }
+    for (p of people) {
+        if (p.location == locations.HOME) {
+            for (p2 of people) {
+                if (p.home.id == p2.home.id && p.id != p2.id && p2.infected && p2.location == locations.HOME) {
+                    if (Math.random() <= 0.3 && !p.dead && !p.recovered) p.infected = true, p.transmissionCause = transmissionCause.HOUSEHOLD;
+                }
+            }
+        }
+    }
     
     //output
     infected = 0;
