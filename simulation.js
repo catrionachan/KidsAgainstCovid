@@ -1,13 +1,10 @@
 var fs = require('fs');
 
 //SETUP//
-fs.writeFile('results.txt', '', function(err){
+fs.writeFile('results.txt', '', function(err) {
     if (err) console.log(err);
 });
-fs.writeFile('results.csv', 'day,susceptible,infected,recovered,dead,shopped\n', function(err){
-    if (err) console.log(err);
-});
-fs.writeFile('homes.csv', 'id,people\n', function(err){
+fs.writeFile('results.csv', 'day,susceptible,infected,recovered,dead,shopped\n', function(err) {
     if (err) console.log(err);
 });
 
@@ -38,7 +35,6 @@ for (var i = 0; i < nHomes; i++) {
     if (maxPeopleDecider > 0.9071 && maxPeopleDecider <= 0.9649) homes[i].maxPeople = 5;
     if (maxPeopleDecider > 0.9649 && maxPeopleDecider <= 1) homes[i].maxPeople = 6;
     population += homes[i].maxPeople;
-    csvWrite('homes.csv', homes[i].id+","+homes[i].maxPeople);
 }
 
 console.log(homes);
@@ -69,18 +65,15 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
             chance += 0.0065;
             if (this.tSinceInfection >= 6) chance += 0.01;
             if (this.tSinceInfection >= 11) chance += 0.02;
-        }
-        else if (age < 80 && age >= 70) {
+        } else if (age < 80 && age >= 70) {
             chance += 0.004;
             if (this.tSinceInfection >= 6) chance += 0.0055;
             if (this.tSinceInfection >= 11) chance += 0.0075;
-        }
-        else if (age < 70 && age >= 60) {
+        } else if (age < 70 && age >= 60) {
             chance += 0.0005;
             if (this.tSinceInfection >= 6) chance += 0.002;
             if (this.tSinceInfection >= 11) chance += 0.0035;
-        }
-        else if (age < 60 && age >= 40) {
+        } else if (age < 60 && age >= 40) {
             chance += 0.00000001;
             if (this.tSinceInfection >= 10) chance += 0.00000001;
             if (this.tSinceInfection >= 20) chance += 0.00000002;
@@ -100,7 +93,7 @@ function Person(id, infected, tSinceInfection, symptomatic, recovered, dead, loc
 }
 
 for (var i = 0; i < population; i++) {
-    people[i] = new Person(i, false, 0, false, false, false, locations.HOME, false, null, Math.floor(Math.random()*99+1), Math.random(), false);
+    people[i] = new Person(i, false, 0, false, false, false, locations.HOME, false, null, Math.floor(Math.random() * 99 + 1), Math.random(), false);
     for (h of homes) {
         if (h.currentPeople < h.maxPeople) {
             people[i].home = h;
@@ -134,23 +127,22 @@ for (var i = 1; i <= nDays; i++) {
     groceryInfectionChance = 0;
     shopped = 0;
     for (p of people) {
-        if ((Math.random() <= 0.3*(1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.3*(1 - p.socialDistancingObedience && p.recovered))) {
+        if ((Math.random() <= 0.3 * (1 - p.socialDistancingObedience) && !p.justShopped && !p.symptomatic) || (Math.random() <= 0.3 * (1 - p.socialDistancingObedience && p.recovered))) {
             if (!p.dead) p.location = locations.GROCERY_STORE, shopped++;
         }
         if (p.infected && p.location == locations.GROCERY_STORE && !p.dead) groceryInfectionChance += 0.5;
     }
     for (p of people) {
-        if (p.location == locations.GROCERY_STORE && !p.dead && !p.recovered) if (Math.random() <= groceryInfectionChance) p.infected = true;
+        if (p.location == locations.GROCERY_STORE && !p.dead && !p.recovered)
+            if (Math.random() <= groceryInfectionChance) p.infected = true;
     }
     for (p of people) {
         p.location = locations.HOME;
     }
 
     //home
-    // for (p of people) {
-    //     if (p.location == locations.HOME)
-    // }
-    
+
+
     //output
     infected = 0;
     recovered = 0;
@@ -162,14 +154,14 @@ for (var i = 1; i <= nDays; i++) {
     }
     susceptible = population - infected - recovered - dead;
     var sb = "";
-        sb+="\nday " + i;
-        sb+="\nsusceptible " + susceptible;
-        sb+="\ninfected " + infected;
-        sb+="\nrecovered " + recovered;
-        sb+="\ndead " + dead;
-        sb+="\nshopped " + shopped;
+    sb += "\nday " + i;
+    sb += "\nsusceptible " + susceptible;
+    sb += "\ninfected " + infected;
+    sb += "\nrecovered " + recovered;
+    sb += "\ndead " + dead;
+    sb += "\nshopped " + shopped;
     txtWrite('results.txt', sb);
-    
+
     sb = i + "," + susceptible + "," + infected + "," + recovered + "," + dead + "," + shopped;
     csvWrite('results.csv', sb);
     // console.log("\nday " + i);
@@ -182,23 +174,26 @@ for (var i = 1; i <= nDays; i++) {
 
 console.log(people);
 
-var eightsandold = 0, sixsevens = 0, fourfives = 0, twothrees = 0;
-var deightsandold = 0, dsixsevens = 0, dfourfives = 0, dtwothrees = 0;
+var eightsandold = 0,
+    sixsevens = 0,
+    fourfives = 0,
+    twothrees = 0;
+var deightsandold = 0,
+    dsixsevens = 0,
+    dfourfives = 0,
+    dtwothrees = 0;
 
 for (p of people) {
     if (p.age >= 80) {
         eightsandold++;
         if (p.dead) deightsandold++;
-    }
-    else if (p.age < 80 && p.age >= 60) {
+    } else if (p.age < 80 && p.age >= 60) {
         sixsevens++
         if (p.dead) dsixsevens++;
-    }
-    else if (p.age < 60 && p.age >= 40) {
+    } else if (p.age < 60 && p.age >= 40) {
         fourfives++;
         if (p.dead) dfourfives++;
-    }
-    else if (p.age < 40 && p.age >= 20) {
+    } else if (p.age < 40 && p.age >= 20) {
         twothrees++;
         if (p.dead) dtwothrees++;
     }
