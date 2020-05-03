@@ -23,7 +23,7 @@ var context = canvas.getContext('2d');
       context.strokeStyle = 'darkred';
       context.stroke();
 
-
+      context.strokeRect(45,45,50,50);
 
 }
 
