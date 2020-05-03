@@ -1,300 +1,300 @@
 
 day 1
-infected 9
+infected 1
 recovered 0
 dead 0
-shopped 15
+shopped 14
 
 day 2
-infected 17
+infected 1
 recovered 0
 dead 0
-shopped 10
+shopped 19
 
 day 3
-infected 27
+infected 1
 recovered 0
 dead 0
-shopped 14
+shopped 17
 
 day 4
-infected 34
-recovered 0
-dead 0
-shopped 12
-
-day 5
-infected 40
-recovered 0
-dead 0
-shopped 11
-
-day 6
-infected 51
-recovered 0
-dead 0
-shopped 21
-
-day 7
-infected 58
-recovered 0
-dead 0
-shopped 14
-
-day 8
-infected 62
-recovered 0
-dead 0
-shopped 9
-
-day 10
-infected 73
+infected 1
 recovered 0
 dead 0
 shopped 13
 
-day 9
-infected 66
+day 5
+infected 7
 recovered 0
 dead 0
-shopped 7
+shopped 16
 
-day 11
-infected 76
+day 6
+infected 11
 recovered 0
 dead 0
-shopped 7
+shopped 13
+
+day 7
+infected 25
+recovered 0
+dead 0
+shopped 17
+
+day 8
+infected 37
+recovered 0
+dead 0
+shopped 18
+
+day 9
+infected 44
+recovered 0
+dead 0
+shopped 12
+
+day 10
+infected 56
+recovered 0
+dead 0
+shopped 24
 
 day 12
-infected 77
+infected 69
 recovered 0
 dead 0
-shopped 8
+shopped 20
+
+day 11
+infected 62
+recovered 0
+dead 0
+shopped 18
 
 day 13
-infected 80
+infected 70
 recovered 0
 dead 0
 shopped 7
 
 day 14
-infected 82
+infected 75
 recovered 0
 dead 0
-shopped 4
+shopped 10
 
 day 15
-infected 83
+infected 81
 recovered 0
 dead 0
-shopped 3
+shopped 14
 
 day 16
+infected 83
+recovered 1
+dead 0
+shopped 5
+
+day 18
+infected 88
+recovered 1
+dead 0
+shopped 7
+
+day 17
 infected 84
 recovered 1
 dead 0
 shopped 4
 
-day 17
-infected 76
-recovered 9
-dead 0
-shopped 2
-
-day 18
-infected 73
-recovered 17
-dead 0
-shopped 9
-
 day 19
-infected 63
-recovered 27
+infected 88
+recovered 1
 dead 0
-shopped 9
+shopped 4
 
 day 20
-infected 53
-recovered 34
+infected 89
+recovered 1
 dead 0
-shopped 14
+shopped 3
 
 day 21
-infected 53
-recovered 40
+infected 83
+recovered 7
 dead 0
-shopped 12
+shopped 5
 
 day 22
-infected 45
-recovered 51
+infected 81
+recovered 11
 dead 0
-shopped 21
+shopped 6
 
 day 23
-infected 30
-recovered 58
+infected 70
+recovered 25
 dead 0
-shopped 11
+shopped 8
 
 day 24
-infected 26
-recovered 62
+infected 55
+recovered 37
 dead 0
-shopped 21
+shopped 16
 
 day 25
-infected 22
-recovered 66
+infected 48
+recovered 44
+dead 0
+shopped 13
+
+day 26
+infected 36
+recovered 56
 dead 0
 shopped 20
 
-day 26
-infected 15
-recovered 73
+day 27
+infected 30
+recovered 62
 dead 0
-shopped 27
-
-day 29
-infected 8
-recovered 80
-dead 0
-shopped 31
+shopped 20
 
 day 28
-infected 11
-recovered 77
-dead 0
-shopped 21
-
-day 27
-infected 12
-recovered 76
-dead 0
-shopped 24
-
-day 30
-infected 6
-recovered 82
-dead 0
-shopped 26
-
-day 31
-infected 5
-recovered 83
-dead 0
-shopped 26
-
-day 32
-infected 3
-recovered 85
-dead 0
-shopped 25
-
-day 33
-infected 3
-recovered 85
+infected 40
+recovered 69
 dead 0
 shopped 29
 
-day 35
-infected 1
-recovered 87
+day 29
+infected 23
+recovered 70
 dead 0
-shopped 34
+shopped 21
 
-day 36
-infected 1
-recovered 87
+day 30
+infected 29
+recovered 75
 dead 0
-shopped 25
+shopped 21
 
-day 37
-infected 1
-recovered 87
+day 31
+infected 12
+recovered 81
 dead 0
-shopped 32
+shopped 24
+
+day 32
+infected 10
+recovered 83
+dead 0
+shopped 21
+
+day 33
+infected 20
+recovered 85
+dead 0
+shopped 28
 
 day 34
-infected 1
-recovered 87
+infected 6
+recovered 88
 dead 0
 shopped 23
 
-day 38
-infected 0
-recovered 88
+day 35
+infected 5
+recovered 89
 dead 0
-shopped 27
+shopped 29
+
+day 36
+infected 4
+recovered 90
+dead 0
+shopped 28
+
+day 37
+infected 4
+recovered 90
+dead 0
+shopped 35
+
+day 38
+infected 4
+recovered 90
+dead 0
+shopped 24
 
 day 39
-infected 0
-recovered 88
+infected 2
+recovered 92
 dead 0
-shopped 26
-
-day 41
-infected 0
-recovered 88
-dead 0
-shopped 24
+shopped 33
 
 day 40
-infected 0
-recovered 88
+infected 2
+recovered 92
 dead 0
-shopped 24
+shopped 28
+
+day 41
+infected 2
+recovered 92
+dead 0
+shopped 30
 
 day 42
-infected 0
-recovered 88
+infected 2
+recovered 92
 dead 0
 shopped 29
 
 day 43
-infected 0
-recovered 88
+infected 2
+recovered 92
 dead 0
-shopped 24
+shopped 25
 
 day 44
-infected 0
-recovered 88
+infected 1
+recovered 93
 dead 0
-shopped 20
+shopped 34
 
 day 45
-infected 0
-recovered 88
+infected 1
+recovered 93
 dead 0
-shopped 29
+shopped 30
 
 day 46
-infected 0
-recovered 88
+infected 1
+recovered 93
 dead 0
-shopped 21
+shopped 32
 
 day 47
-infected 0
-recovered 88
+infected 1
+recovered 93
+dead 0
+shopped 30
+
+day 48
+infected 1
+recovered 93
 dead 0
 shopped 29
 
 day 49
 infected 0
-recovered 88
+recovered 94
 dead 0
-shopped 29
-
-day 48
-infected 0
-recovered 88
-dead 0
-shopped 22
+shopped 28
 
 day 50
 infected 0
-recovered 88
+recovered 94
 dead 0
-shopped 30
+shopped 29

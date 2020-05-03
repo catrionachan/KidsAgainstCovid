@@ -4,6 +4,9 @@ var fs = require('fs');
 fs.writeFile('results.txt', '', function(err){
     if (err) console.log(err);
 });
+fs.writeFile('results.csv', 'day,infected,recovered,dead,shopped\n', function(err){
+    if (err) console.log(err);
+});
 
 const locations = {
     HOME: 'home',
@@ -103,6 +106,7 @@ for (var i = 1; i <= nDays; i++) {
 
     //home
 
+    
     //output
     infected = 0;
     recovered = 0;
@@ -118,8 +122,10 @@ for (var i = 1; i <= nDays; i++) {
         sb+="\nrecovered " + recovered;
         sb+="\ndead " + dead;
         sb+="\nshopped " + shopped;
-
-    fileWrite2('results.txt', sb);
+    txtWrite('results.txt', sb);
+    
+    sb = i + "," + infected + "," + recovered + "," + dead + "," + shopped;
+    csvWrite('results.csv', sb);
     console.log("\nday " + i);
     console.log("infected " + infected);
     console.log("recovered " + recovered);
@@ -129,7 +135,15 @@ for (var i = 1; i <= nDays; i++) {
 
 //console.log(people);
 
-function fileWrite2(savePath, sb) {
+function txtWrite(savePath, sb) {
+    setTimeout(() => {
+        fs.appendFile(savePath, sb + "\n", function(err) {
+            if (err) throw err;
+        });
+    }, 1000);
+}
+
+function csvWrite(savePath, sb) {
     setTimeout(() => {
         fs.appendFile(savePath, sb + "\n", function(err) {
             if (err) throw err;
