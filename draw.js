@@ -3,11 +3,13 @@ var fs = require('fs');
 let filename = "homes.csv"
 let homesData = fs.readFileSync(process.cwd() + "/" + filename).toString()
 var homes = [];
-homes = homesData.split('\n');
+homes = homesData.split('\n');;
 for (var i = 0; i < homes.length; i++) {
-    homes[i] = homes[i].split(",");
+    homes[i]= homes[i].split(",");
 }
 console.log(homes)
+
+console.log(homes[3][1])
 
 function draw() {
 
@@ -40,7 +42,8 @@ function draw() {
         for (var y2 = 0, l = 0; l < 20; y2 += (14), l++) {
             context.strokeStyle = 'purple';
             context.strokeRect(x2, y2, (19), (14));
-            context.fillStyle = 'green';
+            context.fillStyle = 'green';        
+
             context.beginPath();
             context.arc(x2+10, y2+7, 3, 0, 2 * Math.PI, false);
             context.fill();
@@ -50,5 +53,9 @@ function draw() {
             }
         }
 
+        for (var z = 0; z<100; z++) {
+            var peopleHomes;
+            peopleHomes = homes[z][1];
+      }    
 
     }
