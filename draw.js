@@ -65,6 +65,8 @@ function draw() {
                     counterHome++;
                     homeSpots = 0;
                     console.log("empty");
+                }else{
+                    homeSpots++;
                 }
 
             }
