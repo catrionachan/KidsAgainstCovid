@@ -1,4 +1,4 @@
-Array 1: for houses
+//Array 1: for houses
 var house= []; 
 var rows = 8;
 var columns=5
@@ -17,7 +17,7 @@ for(var i=0;i<rows;i++){
 
 
 
-Array2: for rooms
+//Array2: for rooms
 var rooms= []; 
 var rows = 8;
 var columns=5;
@@ -33,26 +33,3 @@ for(var j=0;j<columns;j++){
 }
 }
 
-
-<html>
-   <head>
-       <link rel="stylesheet" href="basic.css">
-       <style>
-       .container {
-               display: grid;
-               grid-template-columns: 100px auto 100px;
-               grid-template-rows: 50px 50px;
-           }
-       </style>
-   </head>
-   <body>
-       <div class="container">
-           <div>1</div>
-           <div>2</div>
-           <div>3</div>
-           <div>4</div>
-           <div>5</div>
-           <div>6</div>
-       </div>
-   </body>
-</html>
