@@ -1,1 +1,28 @@
-Hiii
+var N = 1
+var infRate = .01
+var t = 0
+var infT = 0.1
+
+//NO SOCIAL DISTANCING 
+while (t < 45) {
+    //N = N + infRate * N * infRate * infT
+    N = N * Math.exp(infRate * t)
+    t += 1
+    console.log(N)
+}
+
+//Social Distancing 
+var N = 5
+var infRate = .01
+var t = 0
+var infT = 0.1
+var initialRate = .2
+var maxN =239000000
+
+while (t < 430) {
+    Nold=N 
+    N=N+initialRate*(1-N/maxN)*N*infRate*t
+    t += 1
+     r=(N-Nold)/infRate
+    console.log(r)
+}
